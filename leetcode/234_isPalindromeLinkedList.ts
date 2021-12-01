@@ -1,15 +1,6 @@
 // Problem: https://leetcode.com/problems/palindrome-linked-list/
 
-// type lNode = ListNode | null;
-
-// class ListNode {
-//   val: number;
-//   next: lNode;
-//   constructor(val?: number, next?: ListNode | null) {
-//     this.val = val === undefined ? 0 : val;
-//     this.next = next === undefined ? null : next;
-//   }
-// }
+import { lNode } from "../utilities/linkedList";
 
 function isPalindromeLinkedList(head: lNode): boolean {
   let fast: lNode = head;

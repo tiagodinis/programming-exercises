@@ -1,20 +1,10 @@
 // Problem: https://leetcode.com/problems/add-two-numbers/
 
-// class ListNode {
-//   val: number;
-//   next: ListNode | null;
-//   constructor(val?: number, next?: ListNode | null) {
-//     this.val = val === undefined ? 0 : val;
-//     this.next = next === undefined ? null : next;
-//   }
-// }
+import { ListNode, lNode } from "../utilities/linkedList";
 
-function addTwoNumbers(
-  l1: ListNode | null,
-  l2: ListNode | null
-): ListNode | null {
-  let dummy: ListNode = new ListNode();
-  let current: ListNode = dummy;
+function addTwoNumbers(l1: lNode, l2: lNode): lNode {
+  let dummy: lNode = new ListNode();
+  let current: lNode = dummy;
   let val: number;
   let carry: number = 0;
 

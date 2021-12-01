@@ -1,13 +1,6 @@
-type lNode = ListNode | null;
+// Problem: https://leetcode.com/problems/reverse-linked-list/
 
-class ListNode {
-  val: number;
-  next: lNode;
-  constructor(val?: number, next?: ListNode | null) {
-    this.val = val === undefined ? 0 : val;
-    this.next = next === undefined ? null : next;
-  }
-}
+import { lNode } from "../utilities/linkedList";
 
 // Iterative
 function reverseLinkedList(head: lNode): lNode {
@@ -22,8 +15,8 @@ function reverseLinkedList(head: lNode): lNode {
 }
 
 // Functional
-function reverseLinkedListFunc(head: lNode): lNode {
-  if (head === null || head.next === null) return head;
+function reverseLinkedListFunc(head: any): lNode {
+  if (head.next === null) return head;
 
   let newHead: lNode = reverseLinkedListFunc(head.next);
   head.next.next = head;
