@@ -1,11 +1,6 @@
 // Problem: https://leetcode.com/problems/reverse-linked-list-ii/
 
-import {
-  createLinkedList,
-  ListNode,
-  lNode,
-  printLinkedList,
-} from "../utilities/linkedList";
+import { ListNode, lNode } from "../utilities/linkedList";
 
 // Simpler version
 function reverseBetween(head: lNode, left: number, right: number): lNode {
