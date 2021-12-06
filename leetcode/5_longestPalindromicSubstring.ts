@@ -2,19 +2,14 @@
 
 function longestPalindrome(s: string): string {
   let longest: string = s[0];
-  for (let curr = 0, prev = 0; curr < s.length - 1; prev = curr, ++curr) {
-    if (s[curr] === s[curr + 1])
-      longest = search(s, longest, curr - 1, curr + 2);
-    if (s[prev] === s[curr + 1])
-      longest = search(s, longest, prev - 1, curr + 2);
+  for (let i = 0; i < s.length - 1; ++i) {
+    if (s[i] === s[i + 1]) longest = search(s, longest, i - 1, i + 2);
+    if (s[i - 1] === s[i + 1]) longest = search(s, longest, i - 2, i + 2);
   }
-
   return longest;
 }
 
 function search(s: string, longest: string, l: number, r: number): string {
   for (; s[l] === s[r] && l > -1 && r < s.length; --l, ++r);
-  l++;
-  r--;
-  return r - l > longest.length - 1 ? s.substring(l, r + 1) : longest;
+  return --r - ++l > longest.length - 1 ? s.substring(l, r + 1) : longest;
 }
