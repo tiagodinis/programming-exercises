@@ -1,6 +1,6 @@
 // Problem: https://leetcode.com/problems/binary-tree-level-order-traversal-ii/
 
-import { btNode, createBinaryTree } from "../utilities/binaryTree";
+import { btNode } from "../utilities/binaryTree";
 
 function levelOrderBottom(root: btNode): number[][] {
   if (!root) return [];
@@ -20,5 +20,3 @@ function levelOrderBottom(root: btNode): number[][] {
 
   return res.reverse();
 }
-
-console.log(levelOrderBottom(createBinaryTree([])));

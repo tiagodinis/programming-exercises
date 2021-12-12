@@ -14,5 +14,3 @@ function longestCommonPrefix(strs: string[]): string {
 
   return res;
 }
-
-console.log(longestCommonPrefix(["dog", "racecar", "car"]));
