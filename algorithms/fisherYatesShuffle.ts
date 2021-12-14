@@ -8,3 +8,15 @@ function fisherYatesShuffle(arr: any[]) {
 
   return arr;
 }
+
+function insideOut(arr: any[]): any[] {
+  let res: any[] = [1, 2, 3];
+
+  for (let i = 0; i < arr.length; ++i) {
+    let j = Math.trunc(Math.random() * (i + 1));
+    if (i !== j) res[i] = res[j];
+    res[j].push(arr[i]);
+  }
+
+  return res;
+}
