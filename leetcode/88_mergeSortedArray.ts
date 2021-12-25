@@ -1,3 +1,5 @@
+// Problem: https://leetcode.com/problems/merge-sorted-array/submissions/
+
 function merge(nums1: number[], m: number, nums2: number[], n: number): void {
   for (--m, --n; n >= 0; ) {
     if (nums1[m] > nums2[n]) {
