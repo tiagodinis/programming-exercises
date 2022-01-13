@@ -13,21 +13,22 @@ export class BinaryTreeNode {
 }
 
 export function createBinaryTree(arr: btNumber[]): btNode {
-  let nodes: btNode[] = [];
+  if (arr.length === 0 || arr[0] === null) return null;
 
-  for (let level = 0, nrPrevNodes = 0; nrPrevNodes < arr.length; ++level) {
-    let lvlNodes = Math.pow(2, level);
-    for (let i = 0; i < lvlNodes; ++i) {
-      let val = arr[nrPrevNodes + i];
-      let newNode = val ? new BinaryTreeNode(val) : null;
-      if (newNode && level) {
-        let parent = nrPrevNodes - lvlNodes / 2 + Math.trunc(i / 2);
-        nodes[parent]![i % 2 ? "right" : "left"] = newNode;
-      }
-      nodes.push(newNode);
-    }
-    nrPrevNodes += lvlNodes;
+  let root = new BinaryTreeNode(arr[0]);
+  let queue = [root];
+
+  function createNode(n: btNumber) {
+    let node = n === null || n === undefined ? null : new BinaryTreeNode(n);
+    if (node) queue.push(node);
+    return node;
   }
 
-  return nodes[0];
+  for (let i = 1; i < arr.length && queue.length; ) {
+    let dequeued = queue.shift()!;
+    dequeued.left = createNode(arr[i++]);
+    dequeued.right = createNode(arr[i++]);
+  }
+
+  return root;
 }
