@@ -1,6 +1,7 @@
 // Problem: https://leetcode.com/problems/most-visited-sector-in-a-circular-track/
 
-function mostVisited(n: number, rounds: number[]): number[] {
+// Naive
+function mostVisitedNaive(n: number, rounds: number[]): number[] {
   let res = Array(n).fill(0);
   let startSectorInd = rounds[0] - 1;
   res[startSectorInd] = 1;
@@ -24,4 +25,20 @@ function mostVisited(n: number, rounds: number[]): number[] {
   }
 
   return res.slice(0, l);
+}
+
+// Better
+function mostVisited(n: number, rounds: number[]): number[] {
+  const start = rounds[0];
+  const end = rounds[rounds.length - 1];
+  let res: number[] = [];
+
+  if (start <= end) {
+    for (let i = start; i <= end; i++) res.push(i);
+  } else {
+    for (let i = 1; i <= end; i++) res.push(i);
+    for (let i = start; i <= n; i++) res.push(i);
+  }
+
+  return res;
 }
