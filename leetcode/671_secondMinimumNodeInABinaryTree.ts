@@ -2,7 +2,7 @@
 
 import { btNode } from "../utilities/binaryTree";
 
-function findSecondMinimumValue(root: btNode): number {
+function findSecondMinimumValueBFS(root: btNode): number {
   let secondMin = Infinity;
   let queue = [root];
 
@@ -24,4 +24,19 @@ function findSecondMinimumValue(root: btNode): number {
   }
 
   return secondMin === Infinity ? -1 : secondMin;
+}
+
+function findSecondMinimumValueDFS(root: btNode): number {
+  let res = search(root, root!.val);
+  return res === Infinity ? -1 : res;
+}
+
+function search(node: btNode, min: number): number {
+  if (!node!.left) return Infinity;
+
+  let secondMin = Math.min(search(node!.left, min), search(node!.right, min));
+  if (node!.left!.val > min) secondMin = Math.min(secondMin, node!.left!.val);
+  if (node!.right!.val > min) secondMin = Math.min(secondMin, node!.right!.val);
+
+  return secondMin;
 }
