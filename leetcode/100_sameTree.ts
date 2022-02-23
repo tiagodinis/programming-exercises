@@ -2,7 +2,7 @@
 
 import { btNode } from "../utilities/binaryTree";
 
-function isSameTree(root1: btNode, root2: btNode): boolean {
+export function isSameTree(root1: btNode, root2: btNode): boolean {
   let queue1 = [root1];
   let queue2 = [root2];
 
