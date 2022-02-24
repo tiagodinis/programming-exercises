@@ -1,6 +1,6 @@
 // Problem: https://leetcode.com/problems/remove-duplicates-from-sorted-list/
 
-import { createLinkedList, lNode } from "../utilities/linkedList";
+import { lNode } from "../utilities/linkedList";
 
 function deleteDuplicates(head: lNode): lNode {
   const start = head;
